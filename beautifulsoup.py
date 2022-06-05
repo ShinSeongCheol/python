@@ -18,6 +18,13 @@ for rate in movieRating :
 for vote in movieVote : 
     numOfParti.append(vote.get_text())
 
+dic = {
+    '제목' : movie,
+    '평점' : rating,
+    '참여인원' : numOfParti
+}
 
-naverMovie = pd.DataFrame({'제목': movie, '평점' : rating, '참여인원' : numOfParti})
+naverMovie = pd.DataFrame.from_dict(dic, orient='index')
+
+naverMovie = naverMovie.transpose()
 naverMovie
